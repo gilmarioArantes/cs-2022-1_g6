@@ -1,20 +1,21 @@
+
 ### cs-2022-1_g6
 Repositório definido para a manutenção do controle de versão dos artefatos gerados pelo **Grupo 6** na construção de uma API REST, durante o curso da disciplina **Construção de Software**, do quinto período do curso de **Engenharia de Software**, do **INF/UFG**, no semestre 2022/1.
 
-### Descrição do Produto:
+### Descrição do Produto: Uma API Rest que gerencia receitas de um restaurante
 
 #### Requisitos:
-1. Requisito/funcionalidade: (nome/descrição)
-2. Requisito/funcionalidade: (nome/descrição)
-3. Requisito/funcionalidade: (nome/descrição)
-4. Requisito/funcionalidade: (nome/descrição)
-5. Requisito/funcionalidade: (nome/descrição)
+1. Requisito/funcionalidade: O usuário poderá se autenticar no sistema;
+2. Requisito/funcionalidade: O usuário poderá adicionar, editar e remover e pesquisar uma receita;
+3. Requisito/funcionalidade: O usuário poderá colocar quantas vezes o pedido é feito por dia, e visualizar a média de pedidos feitos por dia, semana e mês;
+4. Requisito/funcionalidade: O usuário poderá filtrar pelas receitas mais pedidas;
+5. Requisito/funcionalidade: O usuário poderá adicionar uma imagem a uma receita.
 
-### Tecnologia empregada no desenvolvimento:
+### Tecnologia empregada no desenvolvimento: TypeScript/NodeJS
 
-### Banco de Dados:
+### Banco de Dados: PostgreSQL
 
-### Local de deploy:
+### Local de deploy: Máquina virtual Azure (Previsão)
 
 ### Participantes:
 |#|Nome|Usuário|Papel|
