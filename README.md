@@ -15,7 +15,7 @@ Repositório definido para a manutenção do controle de versão dos artefatos g
 
 ### Banco de Dados: PostgreSQL
 
-### Local de deploy: Máquina virtual Azure _IP: http://20.226.32.99/3000_
+### Local de deploy: Máquina virtual Azure _IP: http://20.226.32.99:3000_
 
 ### Participantes:
 |#|Nome|Usuário|Papel|
