@@ -11,10 +11,22 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  name     String
-  email    String @unique
-  password String
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  recipes   Recipes? @relation(references: [id], fields: [recipesId])
+  recipesId Int?    
 
   @@map("tb_user")
+}
+
+model Recipes {
+  id          Int    @id @default(autoincrement())
+  ingredients String
+  preparation String
+  portions    Int
+  User        User[]
+
+  @@map("tb_recipes")
 }
