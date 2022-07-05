@@ -23,6 +23,7 @@ model User {
 
 model Recipes {
   id          Int    @id @default(autoincrement())
+  name        String
   ingredients String
   preparation String
   portions    Int
