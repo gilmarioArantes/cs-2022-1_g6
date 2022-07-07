@@ -1,20 +1,21 @@
+
 ### cs-2022-1_g6
 Repositório definido para a manutenção do controle de versão dos artefatos gerados pelo **Grupo 6** na construção de uma API REST, durante o curso da disciplina **Construção de Software**, do quinto período do curso de **Engenharia de Software**, do **INF/UFG**, no semestre 2022/1.
 
-### Descrição do Produto:
+### Descrição do Produto: Uma API Rest que gerencia receitas de um restaurante
 
 #### Requisitos:
-1. Requisito/funcionalidade: (nome/descrição)
-2. Requisito/funcionalidade: (nome/descrição)
-3. Requisito/funcionalidade: (nome/descrição)
-4. Requisito/funcionalidade: (nome/descrição)
-5. Requisito/funcionalidade: (nome/descrição)
+1. Requisito/funcionalidade: O usuário poderá se autenticar no sistema;
+2. Requisito/funcionalidade: O usuário poderá adicionar, editar e remover e pesquisar uma receita;
+3. Requisito/funcionalidade: O usuário poderá colocar quantas vezes o pedido é feito por dia, e visualizar a média de pedidos feitos por dia, semana e mês;
+4. Requisito/funcionalidade: O usuário poderá filtrar pelas receitas mais pedidas;
+5. Requisito/funcionalidade: O usuário poderá adicionar uma imagem a uma receita.
 
-### Tecnologia empregada no desenvolvimento:
+### Tecnologia empregada no desenvolvimento: TypeScript/NodeJS
 
-### Banco de Dados:
+### Banco de Dados: PostgreSQL
 
-### Local de deploy:
+### Local de deploy: Máquina virtual Azure _IP: http://20.226.32.99:3000_
 
 ### Participantes:
 |#|Nome|Usuário|Papel|
@@ -30,7 +31,7 @@ Repositório definido para a manutenção do controle de versão dos artefatos g
 |Sprint|Atividade|Responsável|Início|Fim|Situação|Avaliação|
 |---|---|---|---|---|---|---|
 |1|Formação de Grupos. Definição de Temas|Equipe|03/06/2022|17/06/2022|Concluída|22/06/2022|
-|2|Implementação do Requisito 01|Equipe|18/06/2022|01/07/2022|Em Andamento|06/07/2022|
+|2|Implementação do Requisito 01|Giancarlo|18/06/2022|01/07/2022|Concluída|06/07/2022|
 |3|Implementação do Requisito 02|Equipe|02/07/2022|15/07/2022|A fazer|20/07/2022|
 |4|Implementação do Requisito 03|Equipe|16/07/2022|29/07/2022|A fazer|03/08/2022|
 |5|Implementação do Requisito 04|Equipe|30/07/2022|12/08/2022|A fazer|17/08/2022|
