@@ -15,8 +15,7 @@ model User {
   name      String
   email     String   @unique
   password  String
-  recipes   Recipes? @relation(references: [id], fields: [recipesId])
-  recipesId Int?    
+  recipes   Recipes[]
 
   @@map("tb_user")
 }
@@ -27,7 +26,8 @@ model Recipes {
   ingredients String
   preparation String
   portions    Int
-  User        User[]
+  user        User? @relation(references: [id], fields: [userId])
+  userId      Int?
 
   @@map("tb_recipes")
 }
