@@ -1,15 +1,19 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/database/PrismaService";
-import { CreateRecibesDto } from "./dto/create-recibes.dto";
+import { CreateRecipesDto } from "./dto/create-recipes.dto";
 
 @Injectable()
-export class RecibesService {
+export class RecipesService {
 
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService) {}
 
-  async create(createRecibesDto: CreateRecibesDto) {
+  async create(req, createRecipesDto: CreateRecipesDto) {
+
+    createRecipesDto.userId = req.user.id;
+
     const recibe = await this.prisma.recipes.create({
-      data: createRecibesDto,
+      data: createRecipesDto,
     });
 
     return recibe;
