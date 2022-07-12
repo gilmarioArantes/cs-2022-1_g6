@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Request, Put } from '@nestjs/common';
 import { CreateRecipesDto } from './dto/create-recipes.dto';
 import { RecipesService } from './recipes.service';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
@@ -16,5 +16,10 @@ export class RecipesController {
   @Get()
   async findAll() {
     return this.recipesService.findAll();
+  }
+
+  @Put(":id") 
+  async update(@Param("id") id: number, @Body() data: CreateRecipesDto) {
+    return this.recipesService.update(id, data);
   }
 }

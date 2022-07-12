@@ -1,3 +1,4 @@
+import { UpdateUserDto } from './../user/dto/update-user.dto';
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/database/PrismaService";
 import { CreateRecipesDto } from "./dto/create-recipes.dto";
@@ -21,5 +22,15 @@ export class RecipesService {
 
   async findAll() {
     return await this.prisma.recipes.findMany({})
+  }
+
+  async update(id: number, data: CreateRecipesDto){
+
+    return await this.prisma.recipes.update({
+      data,
+      where: {
+        id,
+      }
+    })
   }
 }
