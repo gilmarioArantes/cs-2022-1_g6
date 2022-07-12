@@ -18,8 +18,9 @@ export class RecipesController {
     return this.recipesService.findAll();
   }
 
-  @Put(":id") 
-  async update(@Param("id") id: number, @Body() data: CreateRecipesDto) {
-    return this.recipesService.update(id, data);
+  @UseGuards(JwtAuthGuard)
+  @Put(':id') 
+  async update(@Param("id") id: string, @Body() data: CreateRecipesDto) {
+    return this.recipesService.update(+id, data);
   }
 }

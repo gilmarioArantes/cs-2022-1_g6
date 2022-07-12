@@ -26,11 +26,13 @@ export class RecipesService {
 
   async update(id: number, data: CreateRecipesDto){
 
-    return await this.prisma.recipes.update({
+    const update = await this.prisma.recipes.update({
       data,
       where: {
         id,
       }
-    })
+    });
+
+    return update;
   }
 }
