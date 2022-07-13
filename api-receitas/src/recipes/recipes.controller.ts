@@ -17,4 +17,10 @@ export class RecipesController {
   async findAll() {
     return this.recipesService.findAll();
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  remove(@Request() req, @Param('id') id: string) {
+    return this.recipesService.remove(+id, req);
+  }
 }
