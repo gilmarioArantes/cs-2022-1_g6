@@ -20,7 +20,13 @@ export class RecipesController {
 
   @UseGuards(JwtAuthGuard)
   @Put(':id') 
-  async update(@Param("id") id: string, @Body() data: CreateRecipesDto) {
-    return this.recipesService.update(+id, data);
+  async update(@Request() req, @Param("id") id: string, @Body() data: CreateRecipesDto) {
+    return this.recipesService.update(+id, data, req);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  remove(@Request() req, @Param('id') id: string) {
+    return this.recipesService.remove(+id, req);
   }
 }

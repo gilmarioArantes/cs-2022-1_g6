@@ -1,5 +1,5 @@
 import { UpdateUserDto } from './../user/dto/update-user.dto';
-import { Injectable } from "@nestjs/common";
+import { Injectable, NotFoundException, UnauthorizedException } from "@nestjs/common";
 import { PrismaService } from "src/database/PrismaService";
 import { CreateRecipesDto } from "./dto/create-recipes.dto";
 
@@ -24,15 +24,55 @@ export class RecipesService {
     return await this.prisma.recipes.findMany({})
   }
 
-  async update(id: number, data: CreateRecipesDto){
+  
+  async update(id: number, data: CreateRecipesDto, req){
 
-    const update = await this.prisma.recipes.update({
+    
+    const recipe = await this.prisma.recipes.findUnique({
+      where: {
+        id: id
+      }
+    })
+
+    if(recipe){
+      if(recipe.userId != req.user.id){
+        throw new UnauthorizedException("Cannot remove another recipes");
+      }
+  
+      return await this.prisma.recipes.update({
       data,
       where: {
-        id,
+        id: id
       }
-    });
-
-    return update;
+    })
+    }
+    else {
+      throw new NotFoundException("Recipe not found")
+    }
   }
+
+
+  async remove(id: number, req) {
+
+    const recipe = await this.prisma.recipes.findUnique({
+       where: {
+         id: id
+       }
+     })
+     if(recipe){
+       if(recipe.userId != req.user.id){
+         throw new UnauthorizedException("Cannot remove another recipes");
+       }
+   
+       return await this.prisma.recipes.delete({
+         where: {
+           id: id
+         }
+       })
+     }
+       else {
+         throw new NotFoundException("Recipe not found")
+       }
+   
+   }
 }
