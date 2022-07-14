@@ -35,6 +35,9 @@ export class RecipesService {
     })
 
     if(recipe){
+      if(recipe.userId != req.user.id){
+        throw new UnauthorizedException("Cannot update recipe");
+      }
   
       return await this.prisma.recipes.update({
       data,
