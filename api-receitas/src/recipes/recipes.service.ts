@@ -35,9 +35,6 @@ export class RecipesService {
     })
 
     if(recipe){
-      if(recipe.userId != req.user.id){
-        throw new UnauthorizedException("Cannot remove another recipes");
-      }
   
       return await this.prisma.recipes.update({
       data,
