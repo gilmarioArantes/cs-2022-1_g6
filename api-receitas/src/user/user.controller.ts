@@ -20,6 +20,12 @@ export class UserController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Get(':name')
+  async getRecipeByName(@Param('name') name: string) {
+       return this.userService.getBookByName(name;
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Patch(':id')
   update(@Request() req, @Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.userService.update(+id, updateUserDto, req);
