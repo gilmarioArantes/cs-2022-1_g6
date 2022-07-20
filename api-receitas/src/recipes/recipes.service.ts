@@ -24,6 +24,29 @@ export class RecipesService {
     return await this.prisma.recipes.findMany({})
   }
 
+  async findOne(id: number, req) {
+
+    const recipe = await this.prisma.recipes.findUnique({
+      where: {
+        id: id
+      }
+    })
+    if(recipe){
+      if(recipe.userId != req.user.id){
+        throw new UnauthorizedException("Cannot view another recipes");
+      }
+  
+      return await this.prisma.recipes.findUnique({
+        where: {
+          id
+        }
+      })
+    }
+    else {
+      throw new NotFoundException("Recipe not found")
+    }
+  }
+
   
   async update(id: number, data: CreateRecipesDto, req){
 
