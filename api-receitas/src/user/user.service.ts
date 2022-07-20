@@ -48,6 +48,16 @@ export class UserService {
     });
   }
 
+  async getRecipeByName(name: string){
+
+    const rec = await this.prisma.user.getRecipeByName(name)
+
+    if(!rec.length)
+        throw new BadRequestException('No results for this name');
+
+    return rec;
+  }
+
   update(id: number, updateUserDto: UpdateUserDto, req) {
 
     console.log(req.user.id)
