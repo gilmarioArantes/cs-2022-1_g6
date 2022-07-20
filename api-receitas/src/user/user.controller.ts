@@ -19,11 +19,11 @@ export class UserController {
     return this.userService.findOne(+id, req);
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get(':name')
-  async getRecipeByName(@Param('name') name: string) {
-       return this.userService.getBookByName(name;
-  }
+  // @UseGuards(JwtAuthGuard)
+  // @Get(':name')
+  // async getRecipeByName(@Param('name') name: string) {
+  //      return this.userService.getBookByName(name;
+  // }
 
   @UseGuards(JwtAuthGuard)
   @Patch(':id')

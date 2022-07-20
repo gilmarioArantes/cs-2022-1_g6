@@ -48,15 +48,15 @@ export class UserService {
     });
   }
 
-  async getRecipeByName(name: string){
+  // async getRecipeByName(name: string){
 
-    const rec = await this.prisma.user.getRecipeByName(name)
+  //   const rec = await this.prisma.user.getRecipeByName(name)
 
-    if(!rec.length)
-        throw new BadRequestException('No results for this name');
+  //   if(!rec.length)
+  //       throw new BadRequestException('No results for this name');
 
-    return rec;
-  }
+  //   return rec;
+  // }
 
   update(id: number, updateUserDto: UpdateUserDto, req) {
 

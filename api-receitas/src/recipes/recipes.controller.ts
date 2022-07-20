@@ -19,6 +19,12 @@ export class RecipesController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Get(':id')
+  findOne(@Request() req, @Param("id") id: string){
+    return this.recipesService.findOne(+id, req);
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Put(':id') 
   async update(@Request() req, @Param("id") id: string, @Body() data: CreateRecipesDto) {
     return this.recipesService.update(+id, data, req);
